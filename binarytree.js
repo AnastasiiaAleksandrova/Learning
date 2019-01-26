@@ -50,49 +50,46 @@ module.exports = class BinaryTree {
 		return false;
 	}
 	
-	dft(callBack) {
-		let queue = new list();
-		
-		if (this.root != null) { 
-			queue.addToTail(this.root);
-		}
-		
-		while (!queue.isEmpty()) {
-			let node = queue.pop();
-			
-			callBack(node.value)
-
-			if (node.right != null)
-				queue.addToHead(node.right);
-
-			if (node.left != null)
-				queue.addToHead(node.left);
-		}
+	dft(callback) {
+		traverse(this, callback, true);
 	}
 	
-	bft(callBack) {
-		let queue = new list();
-		
-		if (this.root != null) { 
-			queue.addToTail(this.root);
-		}
-		
-		while (!queue.isEmpty()) {
-			let node = queue.pop();
-			
-			callBack(node.value)
-
-			if (node.left != null)
-				queue.addToTail(node.left);
-
-			if (node.right != null)
-				queue.addToTail(node.right);
-		}
+	bft(callback) {
+		traverse(this, callback, false);
 	}
-	
 	
 	contains(value) {
 		return findNodeByValue(this, value) != null;
+	}
+}
+
+function traverse(tree, callback, isDft) {
+	let queue = new list();
+		
+	if (tree.root != null) { 
+		queue.addToTail(tree.root);
+	}
+		
+	while (!queue.isEmpty()) {
+		let node = queue.pop();
+			
+		callback(node.value)
+
+		if (isDft) {
+			if (node.right != null) {
+				queue.addToHead(node.right);
+			}
+			if (node.left != null) {
+				queue.addToHead(node.left);
+			}
+		} else {
+			if (node.left != null) {
+				queue.addToTail(node.left);
+			}
+			if (node.right != null) {
+				queue.addToTail(node.right);
+			}
+		}
 	}
 }
 

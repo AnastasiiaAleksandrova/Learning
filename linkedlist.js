@@ -19,10 +19,10 @@ module.exports = class LinkedList {
 	// Stack implementation
 	
 	pop() {
-		console.log(this)
+		//console.log(this)
 		if (!this.isEmpty()) {
 			let value = this.getElement(0);
-			console.log(value)
+			//console.log(value)
 			this.removeAt(0);
 			return value;
 		}

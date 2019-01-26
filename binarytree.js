@@ -50,7 +50,7 @@ module.exports = class BinaryTree {
 		return false;
 	}
 	
-	dft(visitor) {
+	dft(callBack) {
 		let queue = new list();
 		
 		if (this.root != null) { 
@@ -60,7 +60,7 @@ module.exports = class BinaryTree {
 		while (!queue.isEmpty()) {
 			let node = queue.pop();
 			
-			visitor(node.value)
+			callBack(node.value)
 
 			if (node.right != null)
 				queue.addToHead(node.right);
@@ -70,7 +70,24 @@ module.exports = class BinaryTree {
 		}
 	}
 	
-	bft(visitor) {
+	bft(callBack) {
+		let queue = new list();
+		
+		if (this.root != null) { 
+			queue.addToTail(this.root);
+		}
+		
+		while (!queue.isEmpty()) {
+			let node = queue.pop();
+			
+			callBack(node.value)
+
+			if (node.right != null)
+				queue.addToHead(node.right);
+
+			if (node.left != null)
+				queue.addToHead(node.left);
+		}
 	}
 	
 	

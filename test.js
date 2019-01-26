@@ -17,7 +17,7 @@ testTree.add(7);
 
 //console.log(testTree);
 
-testTree.dft(v => {
+testTree.bft(v => {
 	
 	console.log(`Visiting ${v}`)
 	

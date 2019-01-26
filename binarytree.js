@@ -82,11 +82,11 @@ module.exports = class BinaryTree {
 			
 			callBack(node.value)
 
-			if (node.right != null)
-				queue.addToHead(node.right);
-
 			if (node.left != null)
-				queue.addToHead(node.left);
+				queue.addToTail(node.left);
+
+			if (node.right != null)
+				queue.addToTail(node.right);
 		}
 	}
 	

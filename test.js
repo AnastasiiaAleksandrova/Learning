@@ -1,27 +1,23 @@
 const list = require('./linkedlist')
 const tree = require('./binarytree')
 const fsys = require('fs')
+const hash = require('./hashtable')
 
-let testTree = new tree;
+let h = new hash(1000);
 
-
-testTree.add(4);
-testTree.add(2);
-testTree.add(1);
-testTree.add(3);
-testTree.add(6);
-testTree.add(5);
-testTree.add(7);
+h.put("Dima", 33);
+h.put("Nastya", 31);
+console.log(h.get("Dima"));
 
 //console.log(testTree.remove(24));
 
 //console.log(testTree);
 
-testTree.bft(v => {
+//testTree.bft(v => {
 	
-	console.log(`Visiting ${v}`)
+	//console.log(`Visiting ${v}`)
 	
-})
+//})
 
 
 

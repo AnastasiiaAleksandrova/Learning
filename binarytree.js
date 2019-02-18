@@ -63,6 +63,32 @@ module.exports = class BinaryTree {
 	}
 }
 
+class IteratorD {
+		constructor(tree) {
+				this.currNode = null;
+				this.nextNode = tree.root;
+
+		}
+		hasNext() {
+			return nextNode != null;
+		}
+		
+		next() {
+			if (currNode.next == tree.root) {
+				currNode = tree.root;
+			}
+			let queue = new list();
+			if (node.right != null) {
+				queue.addToHead(node.right);
+			}
+			if (node.left != null) {
+				queue.addToHead(node.left);
+			}
+		}
+}		
+		
+		
+
 function traverse(tree, callback, isDft) {
 	let queue = new list();
 		

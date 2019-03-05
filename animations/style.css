@@ -1,0 +1,49 @@
+#container {
+  width: 100vw;
+  height: 85vh;
+  position: relative;
+}
+
+#cube {
+  width: 2em;
+  height: 2em;
+  background-color: red;
+  position: absolute;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 10em;
+  width: 10em;
+  height: 15em;
+  perspective: 1000px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.active .inner {
+  transform: rotateY(180deg);
+  transition-duration: 1s;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+button {
+  padding: 1em;
+}

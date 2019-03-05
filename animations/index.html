@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>animation</title>
+</head>
+
+<body>
+
+  <div id="container">
+
+    <!-- <div id="cube">
+    </div> -->
+
+    <div class="card">
+      <div class="inner">
+        <div class="front">
+          <img src="img/red_back.png" style="width:10em; height:auto">
+        </div>
+        <div class="back">
+          <img src="img/QS.png" style="width:10em; height:auto">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button type="button" onclick="moveCube()">GO!</button>
+  <script>
+    function moveCube() {
+      let elem = document.getElementsByClassName("card")[0];
+      let posTop = 0;
+      let posLeft = 10;
+      let id = setInterval(frame, 50);
+
+      function frame() {
+        if (posTop == 15) {
+          clearInterval(id);
+
+        } else {
+          posTop++;
+          elem.style.top = posTop + "em";
+          elem.style.left = posLeft + "em";
+        }
+      }
+      elem.className += " active";
+
+    }
+  </script>
+</body>
+
+</html>
